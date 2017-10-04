@@ -16,5 +16,8 @@ namespace :provision do
     invoke "provision"
   end
 
-  task :"16_04" => :"14_04"
+  desc "Install and set up all app prerequisites for Ubuntu 16.04"
+  task :"16_04" do
+    invoke "provision"
+  end
 end

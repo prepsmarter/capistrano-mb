@@ -41,7 +41,7 @@ namespace :mb do
     task :install_postgres_repo do
       privileged_on roles(:all) do |host|
         _add_repository(
-          "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main",
+          "deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main",
           :key => "https://www.postgresql.org/media/keys/ACCC4CF8.asc")
       end
     end

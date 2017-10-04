@@ -33,7 +33,7 @@ namespace :load do
         "libxml2-dev"                            => :all,
         "libxslt1-dev"                           => :all,
         "nginx@ppa:nginx/stable"                 => :web,
-        "nodejs@ppa:chris-lea/node.js"           => :all,
+        # "nodejs@ppa:chris-lea/node.js"           => :all,
         "ntp"                                    => :all,
         "postgresql-client@ppa:pitti/postgresql" => :all,
         "postgresql@ppa:pitti/postgresql"        => :db,
