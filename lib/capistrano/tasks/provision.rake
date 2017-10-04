@@ -15,4 +15,6 @@ namespace :provision do
   task :"14_04" do
     invoke "provision"
   end
+
+  task :"16_04" => :"14_04"
 end

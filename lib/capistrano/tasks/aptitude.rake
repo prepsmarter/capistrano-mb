@@ -41,7 +41,7 @@ namespace :mb do
     task :install_postgres_repo do
       privileged_on roles(:all) do |host|
         _add_repository(
-          "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main",
+          "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main",
           :key => "https://www.postgresql.org/media/keys/ACCC4CF8.asc")
       end
     end
@@ -81,19 +81,19 @@ namespace :mb do
 
     def _install(pkg)
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "aptitude", "-y -q install", pkg
+        execute :sudo, "apt-get", "-y -q install", pkg
       end
     end
 
     def _update
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "aptitude", "-q -q -y update"
+        execute :sudo, "apt-get", "-q -q -y update"
       end
     end
 
     def _safe_upgrade
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "aptitude", "-q -q -y safe-upgrade"
+        execute :sudo, "apt-get", "-q -q -y safe-upgrade"
       end
     end
 
