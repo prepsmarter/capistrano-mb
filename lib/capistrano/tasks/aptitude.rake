@@ -81,19 +81,19 @@ namespace :mb do
 
     def _install(pkg)
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "apt-get", "-y install", pkg
+        execute :sudo, "apt-get", "-q=2 install", pkg
       end
     end
 
     def _update
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "apt-get", "-y update"
+        execute :sudo, "apt-get", "-q=2 update"
       end
     end
 
     def _safe_upgrade
       with :debian_frontend => "noninteractive" do
-        execute :sudo, "apt-get", "-y upgrade"
+        execute :sudo, "apt-get", "-q=2 upgrade"
       end
     end
 
