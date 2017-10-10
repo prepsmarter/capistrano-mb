@@ -30,7 +30,7 @@ namespace :mb do
       end
     end
 
-    %w[start stop restart].each do |command|
+    %w[start stop].each do |command|
       desc "#{command} unicorn"
       task command do
         on roles(:app) do
@@ -38,5 +38,12 @@ namespace :mb do
         end
       end
     end
+
+    desc "restart unicorn"
+    task :restart do
+      invoke "mb:unicorn:stop"
+      invoke "mb:unicorn:start"
+    end
+
   end
 end
